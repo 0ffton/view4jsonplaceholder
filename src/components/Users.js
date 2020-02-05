@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
-import {Jumbotron, Container, Badge, ListGroup} from "reactstrap";
+import {Container, Badge, ListGroup} from "reactstrap";
 import User from "./User"
+import ModelJumbotron from "./ModelJumbotron";
 
 class Users extends React.Component {
     constructor(props) {
@@ -30,13 +31,7 @@ class Users extends React.Component {
 
         return (
             <div>
-                <Jumbotron fluid>
-                    <Container fluid>
-                        <h1 className="display-3 text-center">Users</h1>
-                        <p className="lead text-center">List of users from <Badge
-                            href="https://jsonplaceholder.typicode.com/" color="dark">JSONPlaceholder</Badge></p>
-                    </Container>
-                </Jumbotron>
+                <ModelJumbotron header="Users" description="List of users"/>
                 <Container>
                     <ListGroup>
                         {userList}

@@ -7,19 +7,10 @@ import {
     CardText,
     Col,
     Collapse,
-    ListGroupItem, Nav,
-    NavItem,
-    NavLink,
+    ListGroupItem,
     Row
 } from "reactstrap";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
-import Posts from "./Posts";
-
+import UserNavigation from "./UserNavigation";
 
 class User extends React.Component {
 
@@ -49,30 +40,7 @@ class User extends React.Component {
                 <Collapse isOpen={this.props.isOpen && this.state.isOpen} onExited={this.onExited}>
                     <Row>
                         <Col>
-                            <Router>
-                                <div style={{padding: "2.5rem"}}>
-                                    <Nav vertical>
-                                        <NavItem>
-                                            <NavLink tag={Link} to="/posts">Posts</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink tag={Link} to="/comments">Comments</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink tag={Link} to="/albums">Albums</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink tag={Link} to="/photos">Photos</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink tag={Link} to="/todos">TODOs</NavLink>
-                                        </NavItem>
-                                    </Nav>
-                                </div>
-                                <Switch>
-                                    <Route path="/posts" component={Posts}/>
-                                </Switch>
-                            </Router>
+                            <UserNavigation userId={this.props.user.id}/>
                         </Col>
                         <div style={{margin: "10px 0 10px 0", width: "1px", backgroundColor: "#117a8b"}}/>
                         <Col>
