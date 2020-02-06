@@ -12,7 +12,7 @@ class Posts extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`https://jsonplaceholder.typicode.com${this.props.match.url}`)
+        axios.get(this.props.match.url+this.props.location.search)
             .then(response => {
                 this.setState({posts: [...response.data]});
             })

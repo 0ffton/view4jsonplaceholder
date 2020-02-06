@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Container, Badge, ListGroup} from "reactstrap";
+import {Container, ListGroup} from "reactstrap";
 import User from "./User"
 import ModelJumbotron from "./ModelJumbotron";
 
@@ -14,7 +14,7 @@ class Users extends React.Component {
     }
 
     componentDidMount() {
-        axios.get("https://jsonplaceholder.typicode.com/users")
+        axios.get("/users")
             .then(value => {
                 this.setState({users: [...value.data]})
             })
