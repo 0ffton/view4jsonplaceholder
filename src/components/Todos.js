@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Badge, Card, CardBody, Container, ListGroup, ListGroupItem} from "reactstrap";
+import {Card, CardBody, Container, ListGroup} from "reactstrap";
 import ModelJumbotron from "./ModelJumbotron";
 import TodoItem from "./TodoItem";
 
@@ -27,20 +27,20 @@ class Todos extends React.Component {
         return (
             <>
                 <ModelJumbotron header="Todos" description="List of todos"/>
-            <Container>
-                <Card>
-                    <CardBody>
-                        <ListGroup>
-                            {this.state.todos.map(todo => {
-                                return (
-                                    <TodoItem key={todo.id} completed={todo.completed} title={todo.title}/>
-                                );
-                            })}
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-            </Container>
-                </>
+                <Container>
+                    <Card>
+                        <CardBody>
+                            <ListGroup>
+                                {this.state.todos.map(todo => {
+                                    return (
+                                        <TodoItem key={todo.id} completed={todo.completed} title={todo.title}/>
+                                    );
+                                })}
+                            </ListGroup>
+                        </CardBody>
+                    </Card>
+                </Container>
+            </>
         );
     }
 

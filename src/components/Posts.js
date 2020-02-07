@@ -1,6 +1,8 @@
 import React from "react";
 import ModelJumbotron from "./ModelJumbotron";
 import axios from "axios";
+import {Container, ListGroup} from "reactstrap";
+import Post from "./Post";
 
 class Posts extends React.Component {
 
@@ -12,7 +14,7 @@ class Posts extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(this.props.match.url+this.props.location.search)
+        axios.get(this.props.match.url + this.props.location.search)
             .then(response => {
                 this.setState({posts: [...response.data]});
             })
@@ -20,13 +22,15 @@ class Posts extends React.Component {
     }
 
     render() {
-        const posts = this.state.posts.map(post => <li key={post.id}>{post.title}</li>)
+        const posts = this.state.posts.map(post => <Post key={post.id} post={post}/>);
         return (
             <div>
                 <ModelJumbotron header="Posts" description="List of post"/>
-                <ul>
-                    {posts}
-                </ul>
+                <Container>
+                    <ListGroup>
+                        {posts}
+                    </ListGroup>
+                </Container>
             </div>
         );
     }

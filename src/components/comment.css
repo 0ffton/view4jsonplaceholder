@@ -1,0 +1,13 @@
+.comment {
+    padding: 5px 2px
+}
+
+.comment .header {
+    border-bottom: 1px solid;
+    border-bottom-color: #a9aaad;
+    margin-bottom: 3px;
+}
+
+.comment .comment-body {
+    padding-left: 20px;
+}
